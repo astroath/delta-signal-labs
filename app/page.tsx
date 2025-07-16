@@ -2,11 +2,13 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
+import { useState } from "react";
 
 export default function Home() {
   const text = "Next-Gen AI Bots for Serious Traders".split("");
   const text2 = "Built on RSI, Volume, & Machine Learning.".split("");
   const text3 = "No emotions. Just data.".split("");
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const container = {
     hidden: { opacity: 0 },
@@ -64,7 +66,10 @@ export default function Home() {
               Blog
             </a>
           </nav>
-          <button className="md:hidden">
+          <button
+            className="md:hidden"
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-6 w-6"
@@ -80,12 +85,59 @@ export default function Home() {
               />
             </svg>
           </button>
+          {/* Mobile Menu */}
+          {isMobileMenuOpen && (
+            <nav className="md:hidden absolute top-full left-0 right-0 bg-gray-800 py-4 flex flex-col items-center space-y-4 z-30">
+              <a
+                href="#bots"
+                className="hover:text-blue-400"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                Bots
+              </a>
+              <a
+                href="#how-it-works"
+                className="hover:text-blue-400"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                How It Works
+              </a>
+              <a
+                href="#pricing"
+                className="hover:text-blue-400"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                Pricing
+              </a>
+              <a
+                href="#testimonials"
+                className="hover:text-blue-400"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                Testimonials
+              </a>
+              <a
+                href="#support"
+                className="hover:text-blue-400"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                Support
+              </a>
+              <a
+                href="#blog"
+                className="hover:text-blue-400"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                Blog
+              </a>
+            </nav>
+          )}
         </header>
         <div className="absolute inset-0 bg-black opacity-50"></div>
         {/* Placeholder for bot trading animation */}
         <div className="relative z-10 flex flex-col items-center justify-center">
           <motion.h2
-            className="text-5xl font-extrabold"
+            className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold max-w-full"
             variants={container}
             initial="hidden"
             animate="visible"
@@ -97,7 +149,7 @@ export default function Home() {
             ))}
           </motion.h2>
           <motion.p
-            className="text-xl mt-4"
+            className="text-sm sm:text-base md:text-lg mt-4 max-w-full"
             variants={container}
             initial="hidden"
             animate="visible"
@@ -109,7 +161,7 @@ export default function Home() {
             ))}
           </motion.p>
           <motion.p
-            className="text-2xl font-semibold mt-8"
+            className="text-base sm:text-lg md:text-xl font-semibold mt-8 max-w-full"
             variants={container}
             initial="hidden"
             animate="visible"
@@ -120,7 +172,7 @@ export default function Home() {
               </motion.span>
             ))}
           </motion.p>
-          <div className="mt-10">
+          <div className="mt-10 flex flex-col sm:flex-row items-center justify-center flex-wrap gap-4">
             <a
               href="#bots"
               className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-full text-lg transition duration-300"
@@ -129,7 +181,7 @@ export default function Home() {
             </a>
             <a
               href="#demo"
-              className="ml-4 border border-white text-white font-bold py-3 px-8 rounded-full text-lg hover:bg-white hover:text-gray-900 transition duration-300"
+              className="border border-white text-white font-bold py-3 px-8 rounded-full text-lg hover:bg-white hover:text-gray-900 transition duration-300"
             >
               Try Demo
             </a>
