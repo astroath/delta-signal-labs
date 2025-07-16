@@ -258,7 +258,7 @@ export default function Home() {
               </div>
               <div className="bg-gray-700 p-6 rounded-lg flex-none w-80 mx-4">
                 <p>
-                  I've tried many trading bots, but Delta Signal Labs ML Swing
+                  I have tried many trading bots, but Delta Signal Labs ML Swing
                   Bot is by far the most accurate.
                 </p>
                 <p className="mt-4 font-bold">- Emily R.</p>
