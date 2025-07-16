@@ -1,61 +1,125 @@
+"use client";
+
 import Image from "next/image";
+import { motion } from "framer-motion";
 
 export default function Home() {
+  const text = "Next-Gen AI Bots for Serious Traders".split("");
+  const text2 = "Built on RSI, Volume, & Machine Learning.".split("");
+  const text3 = "No emotions. Just data.".split("");
+
+  const container = {
+    hidden: { opacity: 0 },
+    visible: (i = 1) => ({
+      opacity: 1,
+      transition: { staggerChildren: 0.03, delayChildren: 0.04 * i },
+    }),
+  };
+
+  const child = {
+    visible: {
+      opacity: 1,
+      x: 0,
+      y: 0,
+      transition: {
+        damping: 12,
+        stiffness: 100,
+      },
+    },
+    hidden: {
+      opacity: 0,
+      x: -20,
+      y: 10,
+      transition: {
+        damping: 12,
+        stiffness: 100,
+      },
+    },
+  };
+
   return (
     <div className="bg-gray-900 text-white font-sans">
-      {/* Header */}
-      <header className="container mx-auto px-6 py-4 flex justify-between items-center">
-        <h1 className="text-2xl font-bold">Detla Signal Labs</h1>
-        <nav className="hidden md:flex space-x-8">
-          <a href="#bots" className="hover:text-blue-400">
-            Bots
-          </a>
-          <a href="#how-it-works" className="hover:text-blue-400">
-            How It Works
-          </a>
-          <a href="#pricing" className="hover:text-blue-400">
-            Pricing
-          </a>
-          <a href="#testimonials" className="hover:text-blue-400">
-            Testimonials
-          </a>
-          <a href="#support" className="hover:text-blue-400">
-            Support
-          </a>
-          <a href="#blog" className="hover:text-blue-400">
-            Blog
-          </a>
-        </nav>
-        <button className="md:hidden">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="h-6 w-6"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M4 6h16M4 12h16m-7 6h7"
-            />
-          </svg>
-        </button>
-      </header>
-
       {/* Hero Section */}
-      <section className="relative text-center py-28 px-6 hero-background">
+      <section className="relative text-center min-h-screen flex flex-col items-center justify-center px-6 hero-background">
+        {/* Header */}
+        <header className="absolute top-0 left-0 right-0 container mx-auto px-6 py-4 flex justify-between items-center z-20">
+          <h1 className="text-2xl font-bold">Detla Signal Labs</h1>
+          <nav className="hidden md:flex space-x-8">
+            <a href="#bots" className="hover:text-blue-400">
+              Bots
+            </a>
+            <a href="#how-it-works" className="hover:text-blue-400">
+              How It Works
+            </a>
+            <a href="#pricing" className="hover:text-blue-400">
+              Pricing
+            </a>
+            <a href="#testimonials" className="hover:text-blue-400">
+              Testimonials
+            </a>
+            <a href="#support" className="hover:text-blue-400">
+              Support
+            </a>
+            <a href="#blog" className="hover:text-blue-400">
+              Blog
+            </a>
+          </nav>
+          <button className="md:hidden">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-6 w-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M4 6h16M4 12h16m-7 6h7"
+              />
+            </svg>
+          </button>
+        </header>
         <div className="absolute inset-0 bg-black opacity-50"></div>
         {/* Placeholder for bot trading animation */}
-        <div className="relative z-10">
-          <h2 className="text-5xl font-extrabold">
-            Next-Gen AI Bots for Serious Traders
-          </h2>
-          <p className="text-xl mt-4">
-            Built on RSI, Volume, & Machine Learning.
-          </p>
-          <p className="text-2xl font-semibold mt-8">No emotions. Just data.</p>
+        <div className="relative z-10 flex flex-col items-center justify-center">
+          <motion.h2
+            className="text-5xl font-extrabold"
+            variants={container}
+            initial="hidden"
+            animate="visible"
+          >
+            {text.map((word, index) => (
+              <motion.span key={index} variants={child}>
+                {word === " " ? "\u00A0" : word}
+              </motion.span>
+            ))}
+          </motion.h2>
+          <motion.p
+            className="text-xl mt-4"
+            variants={container}
+            initial="hidden"
+            animate="visible"
+          >
+            {text2.map((word, index) => (
+              <motion.span key={index} variants={child}>
+                {word === " " ? "\u00A0" : word}
+              </motion.span>
+            ))}
+          </motion.p>
+          <motion.p
+            className="text-2xl font-semibold mt-8"
+            variants={container}
+            initial="hidden"
+            animate="visible"
+          >
+            {text3.map((word, index) => (
+              <motion.span key={index} variants={child}>
+                {word === " " ? "\u00A0" : word}
+              </motion.span>
+            ))}
+          </motion.p>
           <div className="mt-10">
             <a
               href="#bots"
@@ -71,6 +135,22 @@ export default function Home() {
             </a>
           </div>
         </div>
+        <a
+          href="#bots"
+          className="absolute bottom-10 text-lg cursor-pointer z-40"
+        >
+          <motion.p
+            initial={{ y: 0 }}
+            animate={{ y: [0, -10, 0] }}
+            transition={{
+              duration: 1.5,
+              repeat: Infinity,
+              ease: "easeInOut",
+            }}
+          >
+            Learn More &darr;
+          </motion.p>
+        </a>
       </section>
 
       {/* Bots Marketplace Section */}

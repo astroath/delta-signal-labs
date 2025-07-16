@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Delta Signal Labs",
-  description: "",
+  description: "Next-Gen AI Bots for Serious Traders",
 };
 
 export default function RootLayout({
