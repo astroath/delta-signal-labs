@@ -282,6 +282,57 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Scale Smarter Section */}
+      <section className="py-20 px-6 bg-gray-900 text-white">
+        <div className="container mx-auto text-center">
+          <h3 className="text-4xl font-bold mb-12">
+            Scale Smarter: Custom Bots for MT5 Brokerages & Trading Desks
+          </h3>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-4xl mx-auto">
+            <div className="bg-gray-800 p-6 rounded-lg text-left">
+              <h4 className="text-xl font-semibold mb-2">
+                White-label bot solutions
+              </h4>
+              <p className="text-gray-400">
+                Ready-to-deploy bots under your brand.
+              </p>
+            </div>
+            <div className="bg-gray-800 p-6 rounded-lg text-left">
+              <h4 className="text-xl font-semibold mb-2">
+                Custom bot dev with your logic or ours
+              </h4>
+              <p className="text-gray-400">
+                Tailored development to meet your specific trading strategies.
+              </p>
+            </div>
+            <div className="bg-gray-800 p-6 rounded-lg text-left">
+              <h4 className="text-xl font-semibold mb-2">
+                API integration with MT5
+              </h4>
+              <p className="text-gray-400">
+                Seamless connection to MetaTrader 5 for robust operations.
+              </p>
+            </div>
+            <div className="bg-gray-800 p-6 rounded-lg text-left">
+              <h4 className="text-xl font-semibold mb-2">
+                License control & delivery system
+              </h4>
+              <p className="text-gray-400">
+                Manage and distribute bot licenses efficiently.
+              </p>
+            </div>
+            <div className="bg-gray-800 p-6 rounded-lg text-left">
+              <h4 className="text-xl font-semibold mb-2">
+                Dedicated support & team training
+              </h4>
+              <p className="text-gray-400">
+                Comprehensive assistance and training for your team.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Support Section */}
       <section id="support" className="py-20 px-6">
         <div className="container mx-auto text-center">
