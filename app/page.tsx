@@ -45,7 +45,7 @@ export default function Home() {
       <section className="relative text-center min-h-screen flex flex-col items-center justify-center px-6 hero-background">
         {/* Header */}
         <header className="absolute top-0 left-0 right-0 container mx-auto px-6 py-4 flex justify-between items-center z-20">
-          <h1 className="text-2xl font-bold">Detla Signal Labs</h1>
+          <h1 className="text-2xl font-bold">Delta Signal Labs</h1>
           <nav className="hidden md:flex space-x-8">
             <a href="#bots" className="hover:text-blue-400">
               Bots
@@ -53,8 +53,8 @@ export default function Home() {
             <a href="#how-it-works" className="hover:text-blue-400">
               How It Works
             </a>
-            <a href="#pricing" className="hover:text-blue-400">
-              Pricing
+            <a href="#contact" className="hover:text-blue-400">
+              Contact Us
             </a>
             <a href="#testimonials" className="hover:text-blue-400">
               Testimonials
@@ -129,6 +129,13 @@ export default function Home() {
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 Blog
+              </a>
+              <a
+                href="#contact"
+                className="hover:text-blue-400"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                Contact Us
               </a>
             </nav>
           )}
@@ -272,45 +279,43 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Pricing Section */}
-      <section id="pricing" className="py-20 px-6">
+      {/* Contact Us Section */}
+      <section id="contact" className="py-20 px-6">
         <div className="container mx-auto">
           <h3 className="text-4xl font-bold text-center mb-12">
-            Pricing Plans
+            Contact Us
           </h3>
-          <div className="grid md:grid-cols-4 gap-8">
-            <div className="bg-gray-800 p-8 rounded-lg text-center">
-              <h4 className="text-2xl font-bold mb-4">Free Trial</h4>
-              <p className="text-4xl font-bold mb-4">$0</p>
-              <p>7-day trial of any bot</p>
-              <button className="mt-6 bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-                Start Trial
-              </button>
-            </div>
-            <div className="bg-gray-800 p-8 rounded-lg text-center border-2 border-blue-600">
-              <h4 className="text-2xl font-bold mb-4">Monthly</h4>
-              <p className="text-4xl font-bold mb-4">$99/mo</p>
-              <p>Access to all bots</p>
-              <button className="mt-6 bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-                Subscribe
-              </button>
-            </div>
-            <div className="bg-gray-800 p-8 rounded-lg text-center">
-              <h4 className="text-2xl font-bold mb-4">Lifetime</h4>
-              <p className="text-4xl font-bold mb-4">$999</p>
-              <p>One-time payment, lifetime access</p>
-              <button className="mt-6 bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-                Buy Now
-              </button>
-            </div>
-            {/* Custom Pricing */}
-            <div className="bg-gray-800 p-8 rounded-lg text-center">
-              <h4 className="text-2xl font-bold mb-4">Custom Pricing</h4>
-              <p className="text-xl font-bold mb-4">Tailored Solutions</p>
-              <p>Contact us for enterprise-level features and support.</p>
-              <button className="mt-6 bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-                Contact Sales
-              </button>
+          <div className="flex flex-col md:flex-row justify-center items-center space-y-8 md:space-y-0 md:space-x-16">
+            <div className="bg-gray-800 p-8 rounded-lg">
+              <h4 className="text-2xl font-bold mb-4">Get in Touch</h4>
+              <p className="mb-6">Have questions about our bots or need custom solutions? Reach out to our team and we'll get back to you as soon as possible.</p>
+              <form className="space-y-4" onSubmit={(e) => {
+                e.preventDefault();
+                const nameInput = document.getElementById('name') as HTMLInputElement;
+                const emailInput = document.getElementById('email') as HTMLInputElement;
+                const messageInput = document.getElementById('message') as HTMLTextAreaElement;
+                
+                const subject = `Contact from ${nameInput.value}`;
+                const body = `Message from: ${nameInput.value} (${emailInput.value})\n\n${messageInput.value}`;
+                
+                window.location.href = `mailto:support@deltasignallabs.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+              }}>
+                <div>
+                  <label htmlFor="name" className="block mb-1">Name</label>
+                  <input type="text" id="name" required className="w-full p-2 rounded bg-gray-700 text-white" />
+                </div>
+                <div>
+                  <label htmlFor="email" className="block mb-1">Email</label>
+                  <input type="email" id="email" required className="w-full p-2 rounded bg-gray-700 text-white" />
+                </div>
+                <div>
+                  <label htmlFor="message" className="block mb-1">Message</label>
+                  <textarea id="message" rows={4} required className="w-full p-2 rounded bg-gray-700 text-white"></textarea>
+                </div>
+                <button type="submit" className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                  Send Message
+                </button>
+              </form>
             </div>
           </div>
         </div>
