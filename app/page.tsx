@@ -288,7 +288,7 @@ export default function Home() {
           <div className="flex flex-col md:flex-row justify-center items-center space-y-8 md:space-y-0 md:space-x-16">
             <div className="bg-gray-800 p-8 rounded-lg">
               <h4 className="text-2xl font-bold mb-4">Get in Touch</h4>
-              <p className="mb-6">Have questions about our bots or need custom solutions? Reach out to our team and we'll get back to you as soon as possible.</p>
+              <p className="mb-6">Have questions about our bots or need custom solutions? Reach out to our team and we will get back to you as soon as possible.</p>
               <form className="space-y-4" onSubmit={(e) => {
                 e.preventDefault();
                 const nameInput = document.getElementById('name') as HTMLInputElement;
